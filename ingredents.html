@@ -1,0 +1,702 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kunchu's Cooking Recipes</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+        <link rel="icon" type="cut logo/png" href="./cut logo.png">
+        <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+        <style>
+          .search-container {
+              text-align: center;
+              margin-top: 100px;
+          }
+          #search {
+              width: 300px;
+              padding: 10px;
+              font-size: 16px;
+          }
+          #mic {
+              cursor: pointer;
+          }
+          button {
+    background-color: #ffffff;
+}
+
+body{
+    background-size: cover;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;  
+    background-attachment: fixed;  
+}
+
+header{
+    width: 100%;
+    height: 130px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 99;
+    box-shadow: 0 0 10px#ff0000;
+    background: rgba(240, 138, 138, 0.582);
+}
+
+header .search{
+    flex:1 ;
+    position: relative;
+}
+
+.search input{
+    width: 79%;
+    height: 50px;
+    border: none;
+    outline: none;
+    background: #f2f2f2;
+    border-radius: 30px;
+    color: rgb(121, 121, 121);
+    
+}
+
+.search-box input{
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    background: #f2f2f2;
+    border-radius: 30px;
+    color: gray;
+    font-size: 16px;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 40px;
+}
+
+.search button{
+    cursor: pointer;
+    width: 70px;
+    height: 60px;
+    border-radius: 80px;
+    border: none;
+    position:unset ;
+    top: 0;
+    right: 0;
+    transform: scale(0.9);
+    background: rgba(0, 255, 255, 0.562);
+}
+
+header ul{
+    flex: 2;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+header ul li{
+    list-style: none;
+}
+
+header ul li a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 15px;
+}
+
+header ul li a:hover{
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+
+header.menu{
+    font-size: 2.5em;
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    .search-box button {
+        position: absolute;
+    }
+    header ul {
+        position: fixed;
+        top: 100px;
+        right: -100%;
+        background: rgba(0, 0, 0, 0.5);
+        height: calc(100vh - 100px);
+        width: 50%;
+        flex-direction: column;
+        align-items: center;
+        transition: right 0.5s linear;
+    }
+    header .menu {
+        display: block;
+    }
+}
+.chat-container {
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: rgb(255, 255, 255);
+    display: none; /* Hidden by default */
+  }
+
+  .chat-header {
+    background-color: #df74748c;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+  }
+
+  .chat-messages {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    border-bottom: 1px solid #e00909;
+  }
+
+  .chat-input {
+    padding: 10px;
+  }
+
+  .chat-input input {
+    width: 80%;
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .chat-input button {
+    padding: 8px 10px;
+    background-color: #ffffff;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .chat-toggle-btn {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    background-color: #57da91f5;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }                                      
+        </style>
+    </head>
+    <body>
+          <header>
+            <link rel="stylesheet" href="style.css">
+                <img src="cut logo.png" width="160">
+                <div class="nav" align="right">
+                <ul>  
+                    <li><a href="file:///C:/Users/Dell/OneDrive/Desktop/new%20project/kunchu's%20cooking%20recipes/index.main.html">HOME</a></li>
+                </ul>
+                </div>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+                <div class="menu">
+                </div>
+                <div class="search" class="search-container" align="right">
+                    <form action="search." method="go">
+                      
+                      <b><input type="text" id="search" placeholder="   Search.." aria-label="Search" name="query">
+                      <button type="submit" aria-label="Submit search">
+                          <i class="fas fa-search"></i>
+                      </button></b>
+                      
+                    </form>
+                </div> 
+                <button id="mic"><h1>🗣</h1></button>
+                  <script>
+                  const searchInput = document.getElementById('search');
+                  const micButton = document.getElementById('mic');
+                  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                  const recognition = new SpeechRecognition();
+              
+                  recognition.onstart = function() {
+                      console.log('Voice recognition activated.');
+                  };
+              
+                  recognition.onspeechend = function() {
+                      console.log('Voice recognition ended.');
+                      recognition.stop();
+                  };
+              
+                  recognition.onresult = function(event) {
+                      const transcript = event.results[0][0].transcript;
+                      searchInput.value = transcript;
+                      console.log('Transcript:', transcript);
+                  };
+              
+                  micButton.addEventListener('click', () => {
+                      recognition.start();
+                  });
+              </script>
+              
+          </header>
+          <pre><a name="break" style="color: aliceblue;">.</a>
+            
+            
+            
+            
+            
+            
+            <center><strong><h1 style="color: darkcyan;"><u>Which one do you want?</u></h1></strong></center></pre>
+            <style>
+                body {
+                  font-family: Arial, sans-serif;
+                  background-color: #f9f9f9;
+                  margin: 20px;
+                }
+                table {
+                  width: 100%;
+                  border-collapse: collapse;
+                  margin-top: 20px;
+                  background-color: #fff;
+                  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                }
+                th, td {
+                  padding: 10px;
+                  text-align: left;
+                  border: 1px solid #ddd;
+                }
+                th {
+                  background-color: #ff6f61;
+                  color: white;
+                }
+                tr:nth-child(even) {
+                  background-color: #f2f2f2;
+                }
+                .select-all {
+                  margin-bottom: 10px;
+                }
+                .button-container {
+                  margin-top: 20px;
+                  text-align: center;
+                }
+                .action-button {
+                  background-color: #ff6f61;
+                  color: white;
+                  border: none;
+                  padding: 10px 20px;
+                  border-radius: 8px;
+                  font-size: 16px;
+                  cursor: pointer;
+                  transition: background-color 0.3s;
+                }
+                .action-button:hover {
+                  background-color: #e65b50;
+                }
+              </style>
+              <h1>Select Cooking Items</h1>
+
+              <label class="select-all">
+                <input type="checkbox" id="selectAll" onclick="toggleAll(this)"> Select All
+              </label>
+            
+              <table>
+                <thead>
+                  <tr>
+                    <th>Select</th>
+                    <th>Category</th>
+                    <th>Item</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Spices -->
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Spices</td>
+                    <td>Turmeric</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Spices</td>
+                    <td>Chili Powder</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Spices</td>
+                    <td>Coriander Powder</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Spices</td>
+                    <td>Garam Masala</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Spices</td>
+                    <td>Cardamom</td>
+                  </tr>
+            
+                  <!-- Vegetables -->
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Vegetables</td>
+                    <td>Onions</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Vegetables</td>
+                    <td>Tomatoes</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Vegetables</td>
+                    <td>Potatoes</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Vegetables</td>
+                    <td>Carrots</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Vegetables</td>
+                    <td>Spinach</td>
+                  </tr>
+            
+                  <!-- Fruits -->
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Fruits</td>
+                    <td>Apples</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Fruits</td>
+                    <td>Bananas</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Fruits</td>
+                    <td>Mangoes</td>
+                  </tr>
+            
+                  <!-- Dairy -->
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Dairy</td>
+                    <td>Milk</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Dairy</td>
+                    <td>Butter</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Dairy</td>
+                    <td>Cheese</td>
+                  </tr>
+            
+                  <!-- Grains -->
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Grains</td>
+                    <td>Rice</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Grains</td>
+                    <td>Wheat Flour</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Grains</td>
+                    <td>Pasta</td>
+                  </tr>
+            
+                  <!-- Meat & Seafood -->
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Meat & Seafood</td>
+                    <td>Chicken</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Meat & Seafood</td>
+                    <td>Fish</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Meat & Seafood</td>
+                    <td>Shrimp</td>
+                  </tr>
+            
+                  <!-- Baking Essentials -->
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Baking Essentials</td>
+                    <td>Flour</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Baking Essentials</td>
+                    <td>Sugar</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Baking Essentials</td>
+                    <td>Baking Powder</td>
+                  </tr>
+            
+                  <!-- Oils & Condiments -->
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Oils & Condiments</td>
+                    <td>Olive Oil</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Oils & Condiments</td>
+                    <td>Soy Sauce</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" class="item-checkbox"></td>
+                    <td>Oils & Condiments</td>
+                    <td>Ketchup</td>
+                  </tr>
+                </tbody>
+              </table>
+            
+              <div class="button-container">
+                <button class="action-button" onclick="submitSelection()">Submit Selection</button>
+              </div>
+            
+              <script>
+                function toggleAll(source) {
+                  const checkboxes = document.querySelectorAll('.item-checkbox');
+                  checkboxes.forEach(checkbox => {
+                    checkbox.checked = source.checked;
+                  });
+                }
+            
+                function submitSelection() {
+                  const selectedItems = [];
+                  const rows = document.querySelectorAll('tbody tr');
+                  rows.forEach(row => {
+                    const checkbox = row.querySelector('.item-checkbox');
+                    if (checkbox.checked) {
+                      const item = row.cells[2].innerText;
+                      selectedItems.push(item);
+                    }
+                  });
+            
+                  if (selectedItems.length > 0) {
+                    alert(`You selected: ${selectedItems.join(', ')}`);
+                  } else {
+                    alert('No items selected.');
+                  }
+                }
+              </script>
+            
+            <style>
+              body {
+                  font-family: Arial, sans-serif;
+                  margin: 0;
+                  padding: 0;
+                  background-color: #f4f4f4;
+              }
+      
+              /* Fullscreen Chat Box Styles */
+              .chat-container {
+                  position: fixed;
+                  bottom: 15px;
+                  right: 15px;
+                  width: 300px;
+                  height: 400px;
+                  background-color: white;
+                  border-radius: 10px;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                  overflow: hidden;
+                  display: none; /* Hidden by default */
+                  z-index: 1000;
+                  transition: transform 0.5s ease-in-out;
+              }
+      
+              .chat-container.active {
+                  display: flex;
+                  flex-direction: column;
+                  transform: scale(1);
+              }
+      
+              .chat-header {
+                  background-color: #ff7777;
+                  color: white;
+                  padding: 15px;
+                  text-align: center;
+                  font-size: 18px;
+                  position: relative;
+              }
+      
+              .chat-header button {
+                  position: absolute;
+                  top: 15px;
+                  right: 20px;
+                  background: none;
+                  border: none;
+                  color: white;
+                  font-size: 20px;
+                  cursor: pointer;
+              }
+      
+              .chat-box {
+                  flex: 1;
+                  padding: 20px;
+                  overflow-y: auto;
+                  background-color: #f9f9f9;
+              }
+      
+              .chat-message {
+                  margin-bottom: 15px;
+                  padding: 10px 15px;
+                  border-radius: 10px;
+                  font-size: 14px;
+                  line-height: 1.5;
+                  word-wrap: break-word;
+                  max-width: 70%;
+              }
+      
+              .user-message {
+                  background-color: #d1e7fd;
+                  margin-left: auto;
+              }
+      
+              .bot-message {
+                  background-color: #ffefc5;
+                  margin-right: auto;
+              }
+      
+              .chat-input {
+                  display: flex;
+                  padding: 15px;
+                  border-top: 1px solid #ddd;
+                  background-color: #eee;
+              }
+      
+              .chat-input input {
+                  flex: 1;
+                  padding: 10px;
+                  border: 1px solid #ccc;
+                  border-radius: 5px;
+                  font-size: 14px;
+                  margin-right: 10px;
+              }
+      
+              .chat-input button {
+                  padding: 10px 20px;
+                  background-color: #000000;
+                  color: white;
+                  border: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+              }
+      
+              .chat-input button:hover {
+                  background-color: #15ff00;
+              }
+      
+              .chat-toggle-btn {
+                  position: fixed;
+                  bottom: 631px;
+                  right: 0px;
+                  background-color: #ff585880;
+                  color: white;
+                  border: none;
+                  padding: 15px 20px;
+                  font-size: 16px;
+                  border-radius: 0%;
+                  cursor: pointer;
+                  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.555);
+                  z-index: 1001;
+              }
+      
+              .chat-toggle-btn:hover {
+                  background-color: #fc8282;
+              }
+          </style>
+      </head>
+      <body>
+          <button class="chat-toggle-btn" onclick="toggleChat()">Chat to the Shopkeeper</button>
+      
+          <div class="chat-container" id="chatContainer">
+              <div class="chat-header">
+                  Chat with Shopkeeper
+                  <button onclick="toggleChat()">✖</button>
+              </div>
+              <div class="chat-box" id="chatBox">
+                  <div class="chat-message bot-message">Hello! How can I help you today?</div>
+              </div>
+              <div class="chat-input">
+                  <input type="text" id="chatInput" placeholder="Type a message...">
+                  <button onclick="sendMessage()"><i class='bx bx-upvote'></i></button>
+              </div>
+          </div>
+      
+          <script>
+              function toggleChat() {
+                  const chatContainer = document.getElementById("chatContainer");
+                  chatContainer.classList.toggle("active");
+              }
+      
+              function sendMessage() {
+                  const chatInput = document.getElementById("chatInput");
+                  const chatBox = document.getElementById("chatBox");
+                  const message = chatInput.value.trim();
+      
+                  if (message === "") return;
+      
+                  // Add user message
+                  const userMessageDiv = document.createElement("div");
+                  userMessageDiv.className = "chat-message user-message";
+                  userMessageDiv.textContent = message;
+                  chatBox.appendChild(userMessageDiv);
+      
+                  chatBox.scrollTop = chatBox.scrollHeight;
+      
+                  // Clear input
+                  chatInput.value = "";
+      
+                  // Add bot reply after a delay
+                  setTimeout(() => {
+                      const botMessageDiv = document.createElement("div");
+                      botMessageDiv.className = "chat-message bot-message";
+      
+                      // Simple response logic
+                      if (message.toLowerCase().includes("hello")) {
+                          botMessageDiv.textContent = "Hi there! What can I do for you?";
+                      } else if (message.toLowerCase().includes("price")) {
+                          botMessageDiv.textContent = "Could you tell me which item's price you'd like to know?";
+                      }
+                      else if (message.toLowerCase().includes("hai")) {
+                          botMessageDiv.textContent = "Hai,Could you tell me which item's price you'd like to know?";
+                      } 
+                      else if (message.toLowerCase().includes("hi")) {
+                          botMessageDiv.textContent = "Could you tell me which item's price you'd like to know?";
+                      }else {
+                          botMessageDiv.textContent = "I'm sorry, I don't understand. Can you rephrase?";
+                      }
+      
+                      chatBox.appendChild(botMessageDiv);
+                      chatBox.scrollTop = chatBox.scrollHeight;
+                  }, 1000); // 1-second delay for bot response
+              }
+          </script>
+                        
+              
+   </body>
+</html>

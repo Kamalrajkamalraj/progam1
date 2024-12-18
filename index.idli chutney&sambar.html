@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kunchu's Cooking Recipes</title>
+        <link rel="stylesheet" href="style.css">
+         </head>
+    <body>
+        <header>
+            <link rel="stylesheet" href="style.css">
+
+                <img src="cut logo.png" width="160">
+                <div class="nav" align="right">
+                
+                <ul>  
+                    <li><a href="file:///C:/Users/Dell/OneDrive/Desktop/new%20project/kunchu's%20cooking%20recipes/index.main.html">HOME</a></li>
+                    <li><a href="#combo">COMBO'S</a></li>
+                    <li><a href="#tip">TIP&TRICK</a></li>
+                    <li><a href="#">CONTANT</a></li>
+                    <li><a href="#manu">ABOUT</a></li>
+                </ul>
+                </div>
+                
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+                <div class="menu">
+                </div>
+                <div class="search">
+                    <form action="search." method="go">
+                      <h1><input type="text" placeholder="   Search.." aria-label="Search" name="query">
+                      <button type="submit" aria-label="Submit search">🔍</button></h1>
+                    </form>
+                </div>
+        </header>
+<pre style="color: rgb(255, 255, 255);">
+<a name="top">.</a>
+.
+. 
+. 
+. 
+. 
+.
+. 
+</pre>
+<div class="chat-container" id="chat-box">
+    <div class="chat-header" id="chat-header">Chat with us</div>
+    <div class="chat-messages" id="chat-messages">
+      <p>Hai! Which Incregents do you want?</p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chat-input-field" placeholder="Type a message...">
+      <button onclick="sendMessage()"><img src="swipe.jpg" width="30"></button>
+    </div>
+  </div>
+
+  <button class="chat-toggle-btn" id="chat-toggle-btn">💬</button>
+
+<script>
+
+document.getElementById('chat-header').onclick = function() {
+document.getElementById('chat-box').style.display = 'none';
+};
+
+document.getElementById('chat-toggle-btn').onclick = function() {
+const chatBox = document.getElementById('chat-box');
+if (chatBox.style.display === 'none' || chatBox.style.display === '') {
+chatBox.style.display = 'block';
+} else {
+chatBox.style.display = 'none';
+}
+};
+
+
+function sendMessage() {
+const messageField = document.getElementById('chat-input-field');
+const message = messageField.value;
+if (message.trim() !== '') {
+const messagesContainer = document.getElementById('chat-messages');
+const newMessage = document.createElement('p');
+newMessage.textContent = message;
+messagesContainer.appendChild(newMessage);
+messageField.value = '';  // Clear the input field
+}
+}
+</script>
+<ul>
+    <a href="file:///C:/Users/Dell/OneDrive/Desktop/new%20project/kunchu's%20cooking%20recipes/index.main.html"><img src="left arrow.jpg" width="30"></a>
+</ul>
+     <ul>
+       <img src="idli combo.jpg" width="300"> 
+        <h1 align="right">
+            <pre>
+                <fieldset><legend>Idli Recipe</legend>        
+    Ingredients:                        
+
+    .1 cup urad dal (split black gram)  
+    .2 cups idli rice (parboiled rice)  
+    .½ teaspoon fenugreek seeds         
+    .Salt to taste                      
+    .Water as required                  
+    .Oil (for greasing)                 
+     <h5 align="left">Idli, Sambar, and Coconut Chutney are classic South Indian dishes, 
+and they complement each other perfectly. Here’s a detailed step-by-step guide for each:
+           
+Method
+    1.Soak the Ingredients:
+
+        Wash and soak urad dal and fenugreek seeds in water for 4-5 hours.
+        Wash and soak idli rice separately for 4-5 hours.
+    2.Grind the Batter:
+
+        Grind the urad dal and fenugreek seeds with water until smooth and fluffy.
+        Grind the soaked rice separately into a slightly coarse paste using water.
+        Mix both batters in a large bowl, add salt, and leave it to ferment 
+        overnight (8-12 hours) in a warm place.
+    3.Steam the Idlis:
+
+        Once the batter is fermented, stir it gently. Grease idli molds with oil and 
+        pour the batter into the molds.
+        Steam in an idli steamer or pressure cooker (without the whistle) for about 
+        10-12 minutes.
+        Check by inserting a toothpick or knife; if it comes out clean, the idlis are ready. 
+        Allow them to cool slightly and demold them.</h5></pre></h1>
+</fieldset>
+
+<h1 align="right">
+    <pre>
+        <fieldset><legend>Sambar Recipe</legend>        
+    Ingredients:                        
+    .1 cup toor dal (pigeon peas)       
+    .1 small onion (chopped)            
+    .1 tomato (chopped)                 
+    .1-2 carrots (chopped)              
+    .1 drumstick (chopped)              
+    .½ teaspoon turmeric powder         
+    .1 tablespoon tamarind pulp         
+    .1-2 green chilies (slit)           
+    .1 teaspoon sambar powder (optional)
+    .Salt to taste                       
+    .For Tempering:                      
+
+    .1 tablespoon oil or ghee           
+    .1 teaspoon mustard seeds           
+    .½ teaspoon cumin seeds             
+    .1 dried red chili                  
+    .1 sprig curry leaves               
+    .Pinch of asafoetida (hing)         
+                 
+<h5 align="left">
+Method
+  Cook Dal:
+
+    Wash toor dal and pressure cook it with turmeric powder, enough water, and a little salt for about 3-4 
+    whistles until soft.
+    Mash the dal and set aside.
+  Prepare Vegetables:
+
+    In a pan, add some oil and sauté onions until soft. Add tomatoes, carrots, drumstick, and green chilies.
+    Cook until the vegetables are soft.
+    Add sambar powder and tamarind pulp. Let the mixture simmer.
+  Combine Dal and Vegetables:
+
+    Add the mashed dal to the vegetable mixture. Add enough water to reach your desired consistency.
+    Let the sambar boil for 10-15 minutes.
+  Tempering:
+
+    In a small pan, heat oil or ghee, add mustard seeds, cumin seeds, red chili, curry leaves, and asafoetida.
+    Pour the tempering into the sambar and mix well.
+</h5></pre></h1>
+</fieldset>
+        
+<h1 align="right">
+    <pre>
+        <fieldset><legend>Coconut Chutney Recipe</legend>        
+Ingredients:                                            
+
+    1 cup grated fresh coconut                          
+    2 tablespoons roasted chana dal (split roasted gram)
+    1 small green chili (adjust to taste)               
+    1 small piece of ginger                             
+    Salt to taste                                       
+    Water (as required)                                 
+For Tempering:                                          
+            
+    1 teaspoon oil                                      
+    ½ teaspoon mustard seeds                            
+    ½ teaspoon urad dal                                 
+    1 dried red chili                                   
+    Few curry leaves                                    
+<h5 align="left">
+Method
+  Grind Chutney:
+
+    In a blender, add grated coconut, roasted chana dal, green chili, ginger, and salt. 
+    Blend with water to a smooth consistency.
+    Transfer to a bowl.
+   Tempering:
+    
+    Heat oil in a small pan, add mustard seeds, urad dal, red chili, and curry leaves.
+    Once mustard seeds splutter, pour this tempering over the chutney.
+</h5></pre></h1>
+</fieldset>
+<h1><center>✨Enjoy your Idli Samber&Chutney COMBO✨</center></h1>
+
+    </body>
+</html>    

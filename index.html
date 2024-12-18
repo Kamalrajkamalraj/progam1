@@ -1,0 +1,144 @@
+<html>
+<head>
+    <title>Kunchu's cooking Recipes</title>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            display: flex;
+            justify-content: space-around;
+            width: 50%;
+        }
+        .signup-form, .login-form {
+            width: 45%;
+            padding: 30px;
+            border-radius: 40px;
+            box-shadow: 0 4px 8px rgb(3, 3, 3);
+        }
+        .signup-form {
+            background: linear-gradient(135deg, rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255));
+        }
+        .login-form {
+            background-color: #fff;
+            box-shadow: 0 0 15px rgb(0, 0, 0);
+            display: none; /* Hide login form initially */
+        }
+        .signup-form h2, .login-form h2 {
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button, .login-form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #000000cc;
+            color: rgba(0, 0, 0, 0.418);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover, .login-form input[type="submit"]:hover {
+            background-color: #00000075;
+        }
+        header ul li a {
+            text-decoration: none;
+            color: rgb(255, 0, 0);
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 10px 15px;
+        }
+        header ul li a:hover {
+            border-bottom: 2px solid rgba(0, 0, 0, 0.459);
+        }
+        header ul li {
+            list-style: none;
+        }
+        .account-btn {
+            background-color: transparent;
+            border: none;
+            color: rgb(0, 0, 0);
+            text-decoration: underline;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+    <style>
+        @media only screen and (max-width: 600px) {
+    .form-container {
+        width: 90%; /* Make forms wider on small screens */
+        flex-direction: column; /* Stack the forms */
+    }
+}
+
+    </style>
+    
+</head>
+<body>
+    <div class="form-container">
+        <!-- Sign Up Form -->
+        <div class="signup-form">
+            <h2>Sign Up</h2>
+            <form action="file:///C:/Users/kamal/OneDrive/Desktop/new%20project/kunchu's%20cooking%20recipes/index.main.html" method="POST" name="sing-up">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required placeholder="Name:">
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Email:">
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required placeholder="Password:">
+                
+                <button type="submit" style="color: white;"><h2>Sign Up</h2></button>
+                <h4><a href="file:///C:/Users/Dell/OneDrive/Desktop/new%20project/kunchu's%20cooking%20recipes/index.main.html">Skip<i class='bx bxs-chevrons-right bx-tada' style='color:#ff0000' ></i></a></h4>
+            
+                
+
+            </form>
+            <!-- I Already Have an Account Button -->
+            <button class="account-btn" onclick="toggleLoginForm()"><h3>I Already Have An Account Login</h3></button>
+        </div>
+
+        <!-- Login Form -->
+        <div class="login-form" id="loginForm">
+            <h2>Login</h2>
+            <form action="file:///C:/Users/kamal/OneDrive/Desktop/new%20project/kunchu's%20cooking%20recipes/index.main.html" method="POST">
+                <label for="email">Email:</label>
+                <input type="email" id="loginEmail" name="email" placeholder="Enter your email" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
+                
+                <button type="submit" style="color: white;"><h2>Login</h2></button>
+                <h4><a href="file:///C:/Users/Dell/OneDrive/Desktop/new%20project/kunchu's%20cooking%20recipes/index.main.html">Skip<i class='bx bxs-chevrons-right bx-tada' style='color:#ff0000' ></i></a></h4>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleLoginForm() {
+            // Show the login form
+            var loginForm = document.getElementById('loginForm');
+            loginForm.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
